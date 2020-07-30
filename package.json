@@ -1,0 +1,32 @@
+{
+  "name": "apigateway-google-functions",
+  "version": "0.0.1",
+  "description": "API Gateway for Google Functions using http-proxy",
+  "main": "./startServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "bin": {
+    "ag-functions": "ag-functions.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CODEOFPENGUIN/apigateway-google-functions.git"
+  },
+  "keywords": [
+    "Google Functions",
+    "functions"
+  ],
+  "author": "Yungwoo Lee",
+  "license": "MIT",
+  "homepage": "https://github.com/CODEOFPENGUIN/apigateway-google-functions",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "http-proxy": "^1.18.1",
+    "swagger-ui-express": "^4.1.4",
+    "yaml": "^1.10.0"
+  }
+}
