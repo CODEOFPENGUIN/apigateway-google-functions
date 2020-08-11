@@ -4,20 +4,14 @@ const httpProxy = require('http-proxy');
 const yaml = require('yaml');
 const fs = require('fs');
 const urlMatchRoute = require('./lib/route');
-const defaultOption = require('./lib/defaultOption');
+const command = require('./lib/command');
 
 exports.server = function() {
   const services = [
   ];
 
-  process.argv.forEach(function (val, index, array) {
-    console.log(index + ': ' + val);
-    if(val.startsWith('--port=')){
-      port = val.split('=')[1];
-      // console.log(port)
-    }
-  });
-  let startPort = defaultOption.startFunctionsPort;
+  const options = command.getOptions(process.argv);
+  let startPort = options.startFunctionsPort;
   const ymlFile = fs.readFileSync('./serverless.yml', 'utf8');
   const serverlessYaml = yaml.parseDocument(ymlFile);
   const pathJson = serverlessYaml.toJSON()['paths'];
@@ -29,12 +23,11 @@ exports.server = function() {
       services.push({
         route: path,
         method: method,
-        path: 'dist/' + endPoint['operationId'],
+        path: options.tagetSrc + '/' + endPoint[options.endPointKey],
         port: startPort++
       });
     }
   }
-  console.log('start')
   // Start `serverless offline` for each service
   services.forEach(service => {
     const child = spawn('functions-framework', ['--target', 'handler', 
@@ -62,5 +55,6 @@ exports.server = function() {
       res.end();
     }
   });
-  server.listen(defaultOption.proxyPort);
+  server.listen(options.proxyPort);
+  console.log('Proxy Server Start port --' + options.proxyPort);
 }

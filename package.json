@@ -2,7 +2,7 @@
   "name": "apigateway-google-functions",
   "version": "0.0.1",
   "description": "API Gateway for Google Functions using http-proxy",
-  "main": "./startServer.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "node": ">=10.0.0"
   },
   "bin": {
-    "ag-functions": "ag-functions.js"
+    "ag-functions": "bin/ag-functions.js"
   },
   "repository": {
     "type": "git",
