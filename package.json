@@ -1,6 +1,6 @@
 {
   "name": "apigateway-google-functions",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "API Gateway for Google Functions using http-proxy",
   "main": "src/app.js",
   "scripts": {
@@ -26,7 +26,6 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "http-proxy": "^1.18.1",
-    "swagger-ui-express": "^4.1.4",
     "yaml": "^1.10.0"
   }
 }

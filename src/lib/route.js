@@ -1,4 +1,4 @@
-exports.urlMatchRoute = function (url, route, reqMethod, targetMethod) {
+module.exports = function (url, route, reqMethod, targetMethod) {
     const urlParts = url.split('/');
     const routeParts = route.split('/');
     console.log(reqMethod, targetMethod)
